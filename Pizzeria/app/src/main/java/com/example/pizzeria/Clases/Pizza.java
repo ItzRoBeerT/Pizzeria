@@ -7,12 +7,15 @@ public class Pizza {
     private Double precio;
     private Integer tiempoPrep;
     private ArrayList<String> ingredientes;
+    private  Integer  idPizza;
+    private static  Integer idP=0;
 
     public Pizza(String nombre, Double precio, ArrayList<String> ingredientes) {
         this.nombre = nombre;
         this.precio = precio;
         this.ingredientes = ingredientes;
-
+        idPizza=idP;
+        idP++;
     }
 
     public String getNombre() {
@@ -41,6 +44,10 @@ public class Pizza {
 
     public ArrayList<String> getIngredientes() {
         return ingredientes;
+    }
+
+    public Integer getIdPizza() {
+        return idPizza;
     }
 
     public void setIngredientes(ArrayList<String> ingredientes) {

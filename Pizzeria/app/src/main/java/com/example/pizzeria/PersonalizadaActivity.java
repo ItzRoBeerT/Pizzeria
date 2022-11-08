@@ -2,6 +2,7 @@ package com.example.pizzeria;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,16 +39,20 @@ public class PersonalizadaActivity extends AppCompatActivity {
                 TextView txt = findViewById(R.id.txtOpciones);
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
-                Pizza p = generarPizza();
 
                 if(!validarcheck()){
                    Toast.makeText(PersonalizadaActivity.this,"Debe seleccionar al menos 3 ingredientes",Toast.LENGTH_SHORT).show();
-                }else
-                txt.setText(radioButton.getText()+ "Pizza "+p.getNombre()+"\nIngredientes: \n"+ p.mostrarIngredientes());
+                }else{
+                    Pizza p = generarPizza();
+                    txt.setText(radioButton.getText()+ "Pizza "+p.getNombre()+"\nIngredientes: \n"+ p.mostrarIngredientes());
+                    tools.pasarPizza(ConfirmacionActivity.class,p);
+                }
+
             }
         });
     }
 
+    @SuppressLint("SuspiciousIndentation")
     public boolean validarcheck(){
         int contador=0;
         CheckBox chkQueso = findViewById(R.id.chkQueso);

@@ -75,6 +75,12 @@ public class Herramientas {
         this.compAct.startActivity(i);
     }
 
+    public void pasarPizza(Class c, Pizza p){
+        Intent i = new Intent(this.compAct,c);
+        i.putExtra("key",p.getIdPizza());
+        this.compAct.startActivity(i);
+    }
+
     public String recogerValor(){
         Bundle extras = this.compAct.getIntent().getExtras();
         String valor="";
