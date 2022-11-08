@@ -36,6 +36,23 @@ public class DaoPizzeria {
         return pizzas;
     }
 
+    public ArrayList<Pizza> getPizzasPredeterminadas(){
+        ArrayList<Pizza> pizzasPerso= new ArrayList<>();
+
+        ArrayList<String> ingredientes1 = new ArrayList<>();
+        ingredientes1.add("Queso");
+        ingredientes1.add("Atun");
+        ingredientes1.add("Jamon");
+        Pizza p1 = new Pizza("Margarita",10.0,ingredientes1);
+        pizzasPerso.add(p1);
+        Pizza p2 = new Pizza(" 4 Quesos",12.0,ingredientes1);
+        pizzasPerso.add(p2);
+        Pizza p3 = new Pizza("Barbacoa",15.0, ingredientes1);
+        pizzasPerso.add(p3);
+
+        return pizzasPerso;
+    }
+
     public void addPizza(Pizza p){
         pizzas.add(p);
     }
