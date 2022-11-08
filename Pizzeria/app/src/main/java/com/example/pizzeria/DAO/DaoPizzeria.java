@@ -9,8 +9,10 @@ public class DaoPizzeria {
 
     private static DaoPizzeria dao = null;
     private ArrayList<Pizza> pizzas;
+    private ArrayList<Usuario> usuarios;
     private DaoPizzeria(){
         pizzas = new ArrayList<>();
+        usuarios= new ArrayList<>();
     }
 
     public static DaoPizzeria getInstance(){
@@ -20,7 +22,6 @@ public class DaoPizzeria {
         return dao;
     }
     public ArrayList<Usuario> getUsuarios(){
-        ArrayList<Usuario> usuarios = new ArrayList<>();
         Usuario u1 = new Usuario("Roberto","1234");
         usuarios.add(u1);
         return usuarios;
@@ -55,5 +56,9 @@ public class DaoPizzeria {
 
     public void addPizza(Pizza p){
         pizzas.add(p);
+    }
+    public void addUsuario(Usuario u){
+        usuarios.add(u);
+
     }
 }

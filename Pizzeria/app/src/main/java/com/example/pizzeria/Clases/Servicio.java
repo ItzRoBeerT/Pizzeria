@@ -66,6 +66,11 @@ public class Servicio {
         inicializar();
     }
 
+    public void addUsuario(Usuario u){
+        DaoPizzeria.getInstance().addUsuario(u);
+        inicializar();
+    }
+
     public ArrayList<Pizza> getPizzasPredet() {
         return pizzasPredet;
     }

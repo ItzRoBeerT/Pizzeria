@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Pizza;
@@ -20,6 +21,7 @@ public class PedidoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tools.quitarTitulo();
         setContentView(R.layout.activity_pedido);
 
         //BOTON PERSONALIZADA
@@ -51,6 +53,9 @@ public class PedidoActivity extends AppCompatActivity {
 
                 Usuario usuarioActual = servicio.encontrarUsuarioNombre(username);
                 Pizza pizzaFav= usuarioActual.calcularPizzaFav();
+                if(pizzaFav==null){
+                    Toast.makeText(PedidoActivity.this, "Todavia no has hecho ningún pedido", Toast.LENGTH_SHORT).show();
+                }else
                 tools.pasarPizzaPredet(ConfirmacionActivity.class,pizzaFav);
             }
         });
