@@ -46,4 +46,11 @@ public class Pizza {
     public void setIngredientes(ArrayList<String> ingredientes) {
         this.ingredientes = ingredientes;
     }
+    public String mostrarIngredientes(){
+        String txt="";
+        for(String ingrediente: ingredientes){
+            txt+=ingrediente+"\n";
+        }
+        return  txt;
+    }
 }
