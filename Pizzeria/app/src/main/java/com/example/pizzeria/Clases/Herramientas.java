@@ -89,6 +89,14 @@ public class Herramientas {
         }
         return valor;
     }
+    public Integer recogerIdPizza(){
+        Bundle extras = this.compAct.getIntent().getExtras();
+        Integer valor=0;
+        if(extras !=null){
+            valor = extras.getInt("key");
+        }
+        return valor;
+    }
 
     public void quitarTitulo(){
         compAct.requestWindowFeature(Window.FEATURE_NO_TITLE);

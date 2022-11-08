@@ -14,12 +14,14 @@ import android.widget.Toast;
 
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Pizza;
+import com.example.pizzeria.Clases.Servicio;
 
 import java.util.ArrayList;
 
 public class PersonalizadaActivity extends AppCompatActivity {
 
     Herramientas tools = new Herramientas(this);
+    Servicio servicio = new Servicio();
     RadioGroup radioGroup;
     RadioButton radioButton;
     @Override
@@ -45,6 +47,7 @@ public class PersonalizadaActivity extends AppCompatActivity {
                 }else{
                     Pizza p = generarPizza();
                     txt.setText(radioButton.getText()+ "Pizza "+p.getNombre()+"\nIngredientes: \n"+ p.mostrarIngredientes());
+                    servicio.addPizza(p);
                     tools.pasarPizza(ConfirmacionActivity.class,p);
                 }
 
