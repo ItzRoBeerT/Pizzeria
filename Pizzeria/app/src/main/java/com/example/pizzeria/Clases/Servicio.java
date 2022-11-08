@@ -24,6 +24,16 @@ public class Servicio {
         pizzasPredet = DaoPizzeria.getInstance().getPizzasPredeterminadas();
     }
 
+    public Usuario encontrarUsuarioNombre(String nombre){
+        Usuario usuario=null;
+        for(Usuario u: usuarios){
+            if (u.getUser().equals(nombre)){
+                usuario= u;
+            }
+        }
+        return usuario;
+    }
+
     public Pizza getPizzaID(Integer id){
         Pizza pizzaSeleccionada = null;
         for(Pizza p: pizzas){
