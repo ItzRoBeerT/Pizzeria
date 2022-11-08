@@ -81,6 +81,12 @@ public class Herramientas {
         this.compAct.startActivity(i);
     }
 
+    public void pasarPizzaPredet(Class c, Pizza p){
+        Intent i = new Intent(this.compAct,c);
+        i.putExtra("key",p.getNombre());
+        this.compAct.startActivity(i);
+    }
+
     public String recogerValor(){
         Bundle extras = this.compAct.getIntent().getExtras();
         String valor="";
@@ -94,6 +100,14 @@ public class Herramientas {
         Integer valor=0;
         if(extras !=null){
             valor = extras.getInt("key");
+        }
+        return valor;
+    }
+    public String recogerNombrePizzaPredet(){
+        Bundle extras = this.compAct.getIntent().getExtras();
+        String valor="";
+        if(extras !=null){
+            valor = extras.getString("key");
         }
         return valor;
     }

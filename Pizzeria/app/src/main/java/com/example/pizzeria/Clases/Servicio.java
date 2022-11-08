@@ -33,6 +33,24 @@ public class Servicio {
         }
         return pizzaSeleccionada;
     }
+    public Pizza getPizzaIDPredet(Integer id){
+        Pizza pizzaSeleccionada = null;
+        for(Pizza p: pizzasPredet){
+            if (p.getIdPizza()==id){
+                pizzaSeleccionada=p;
+            }
+        }
+        return pizzaSeleccionada;
+    }
+    public Pizza getPizzaPredet(String nombre){
+        Pizza pizza = null;
+        for(Pizza p: pizzasPredet){
+            if(p.getNombre().equals(nombre)){
+                pizza= p;
+            }
+        }
+        return pizza;
+    }
     public void addPizza(Pizza p){
         DaoPizzeria.getInstance().addPizza(p);
         inicializar();

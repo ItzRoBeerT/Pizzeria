@@ -8,7 +8,7 @@ public class Pizza {
     private Integer tiempoPrep;
     private ArrayList<String> ingredientes;
     private  Integer  idPizza;
-    private static  Integer idP=0;
+    private static  Integer idP=1;
 
     public Pizza(String nombre, Double precio, ArrayList<String> ingredientes) {
         this.nombre = nombre;

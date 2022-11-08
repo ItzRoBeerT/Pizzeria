@@ -26,5 +26,14 @@ public class PedidoActivity extends AppCompatActivity {
                 tools.cambiarActividad(PersonalizadaActivity.class);
             }
         });
+
+        //BOTON PREDETERMIANDA
+        Button btnPredet = findViewById(R.id.btnPredeterminada);
+        btnPredet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tools.cambiarActividad(PredeterminadasActivity.class);
+            }
+        });
     }
 }

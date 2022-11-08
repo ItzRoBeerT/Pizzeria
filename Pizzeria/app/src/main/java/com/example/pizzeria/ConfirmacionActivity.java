@@ -22,6 +22,11 @@ public class ConfirmacionActivity extends AppCompatActivity {
         Integer idPizza = tools.recogerIdPizza();
         Pizza miPizza= servicio.getPizzaID(idPizza);
 
+        if(miPizza==null) {
+            String nombrePizza = tools.recogerNombrePizzaPredet();
+            miPizza= servicio.getPizzaPredet(nombrePizza);
+        }
+
         TextView txt = findViewById(R.id.miTexto);
         txt.setText("Pizza "+miPizza.getNombre()+"\nIngredientes:\n"+miPizza.mostrarIngredientes());
     }
