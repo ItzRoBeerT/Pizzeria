@@ -17,7 +17,6 @@ public class PedidoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-
         //BOTON PERSONALIZADA
         Button btnPerso = findViewById(R.id.btnPersonalizada);
         btnPerso.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +32,15 @@ public class PedidoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 tools.cambiarActividad(PredeterminadasActivity.class);
+            }
+        });
+
+        //BOTON FAVORITA
+        Button btnFav = findViewById(R.id.btnFav);
+        btnFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
