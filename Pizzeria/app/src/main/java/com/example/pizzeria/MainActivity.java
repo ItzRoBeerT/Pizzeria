@@ -67,11 +67,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                }
                if(encontrado==true){
-                   if(remember.isChecked()){
+
                        recogerDatosSharedPref(user.getUser(),user.getPassword());
                        tools.cambiarActividad(LoggedActivity.class);
-                   }else
-                   tools.pasarValor(LoggedActivity.class,user);
+
                }else
                 tools.crearDialogo("Usuario o contraseña incorrectos","¿Desea volverlo a intentar?");
             }
@@ -83,10 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(check.equals("true")){
             tools.cambiarActividad(LoggedActivity.class);
-        }else if(check.equals("false")){
-            Toast.makeText(this,"Porfavor inicie sesion",Toast.LENGTH_SHORT).show();
         }
-
 
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
