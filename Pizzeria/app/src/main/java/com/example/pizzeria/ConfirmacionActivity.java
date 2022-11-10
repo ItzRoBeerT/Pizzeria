@@ -35,7 +35,7 @@ public class ConfirmacionActivity extends AppCompatActivity {
         TextView txt = findViewById(R.id.miTexto);
         txt.setText("Pizza "+miPizza.getNombre()+"\nIngredientes:\n"+miPizza.mostrarIngredientes());
 
-<<<<<<< HEAD
+
         //BOTON ACEPTAR PEDIDO
 
         //BOTON CANCELAR
@@ -47,7 +47,7 @@ public class ConfirmacionActivity extends AppCompatActivity {
             }
         });
 
-=======
+
         //BOTON DE CONFIRMAR PEDIDO
         Button btnConfirmar = findViewById(R.id.btnConfirmarPedido);
         Pizza finalMiPizza = miPizza;
@@ -65,6 +65,5 @@ public class ConfirmacionActivity extends AppCompatActivity {
                 finish();
             }
         });
->>>>>>> 4057e05f05d6a649c893a82a9626f3f88b35a866
     }
 }
