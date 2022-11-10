@@ -2,7 +2,7 @@ package com.example.pizzeria.Kotlin
 
 import java.util.ArrayList
 
-class Pizza(var nombre: String, var precio: Double, var ingredientes: ArrayList<String>) {
+class PizzaKotlin(var nombre: String, var precio: Double, var ingredientes: ArrayList<String>) {
     var tiempoPrep: Int? = null
     val idPizza: Int
 

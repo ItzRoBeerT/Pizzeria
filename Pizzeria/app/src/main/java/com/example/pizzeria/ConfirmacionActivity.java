@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Pizza;
@@ -59,7 +60,8 @@ public class ConfirmacionActivity extends AppCompatActivity {
                 Usuario usuarioActual = servicio.encontrarUsuarioNombre(username);
 
                 usuarioActual.addPizzaPedida(finalMiPizza);
-
+                tools.cambiarActividad(LoggedActivity.class);
+                Toast.makeText(ConfirmacionActivity.this, "Preparando la pizza, prepara la cerveza", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

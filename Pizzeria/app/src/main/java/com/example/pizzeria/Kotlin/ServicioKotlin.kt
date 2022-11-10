@@ -5,7 +5,7 @@ import com.example.pizzeria.Clases.Usuario
 import com.example.pizzeria.DAO.DaoPizzeria
 import java.util.ArrayList
 
-class Servicio {
+class ServicioKotlin {
     var usuarios: ArrayList<Usuario>? = null
         private set
     private var pizzas: ArrayList<Pizza>? = null
