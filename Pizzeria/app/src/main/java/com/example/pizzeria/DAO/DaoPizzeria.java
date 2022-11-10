@@ -41,14 +41,24 @@ public class DaoPizzeria {
         ArrayList<Pizza> pizzasPerso= new ArrayList<>();
 
         ArrayList<String> ingredientes1 = new ArrayList<>();
-        ingredientes1.add("Queso");
-        ingredientes1.add("Atun");
+        ingredientes1.add("Tomate");
+        ingredientes1.add("Mozzarela");
         ingredientes1.add("Jamon");
+        ArrayList<String> ingredientes2 = new ArrayList<>();
+        ingredientes2.add("Queso");
+        ingredientes2.add("Gorgonzola");
+        ingredientes2.add("Provolone");
+        ingredientes2.add("Parmesano");
+        ArrayList<String> ingredientes3 = new ArrayList<>();
+        ingredientes3.add("Bacon");
+        ingredientes3.add("Salsa especial de la casa");
+        ingredientes3.add("Carne picada");
+        ingredientes3.add("Salsa picante");
         Pizza p1 = new Pizza("Margarita",10.0,ingredientes1);
         pizzasPerso.add(p1);
-        Pizza p2 = new Pizza(" 4 Quesos",12.0,ingredientes1);
+        Pizza p2 = new Pizza(" 4 Quesos",12.0,ingredientes2);
         pizzasPerso.add(p2);
-        Pizza p3 = new Pizza("Barbacoa",15.0, ingredientes1);
+        Pizza p3 = new Pizza("Barbacoa",15.0, ingredientes3);
         pizzasPerso.add(p3);
 
         return pizzasPerso;
