@@ -1,6 +1,7 @@
 package com.example.pizzeria;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -58,6 +59,16 @@ public class LoggedActivity extends AppCompatActivity {
             }
         });
 
+        //BOTON CONFIGURACION
+        Button btnConfig = findViewById(R.id.btnConfiguracion);
+        btnConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tools.cambiarActividad(ConfiguracionActivity.class);
+
+            }
+        });
+
     }
 
     public void cerrarSesion(){
@@ -83,6 +94,8 @@ public class LoggedActivity extends AppCompatActivity {
         }
         return usu;
     }
+
+
 
 
 }

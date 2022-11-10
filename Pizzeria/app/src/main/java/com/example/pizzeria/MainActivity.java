@@ -3,6 +3,7 @@ package com.example.pizzeria;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //BOTON DE LOGUEARTE
         Button btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onClick(View view) {
                 Boolean encontrado=false;
@@ -65,11 +67,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                }
                if(encontrado==true){
-                   if(remember.isChecked()){
+
                        recogerDatosSharedPref(user.getUser(),user.getPassword());
                        tools.cambiarActividad(LoggedActivity.class);
-                   }else
-                   tools.pasarValor(LoggedActivity.class,user);
+
                }else
                 tools.crearDialogo("Usuario o contraseña incorrectos","¿Desea volverlo a intentar?");
             }
@@ -81,10 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(check.equals("true")){
             tools.cambiarActividad(LoggedActivity.class);
-        }else if(check.equals("false")){
-            Toast.makeText(this,"Porfavor inicie sesion",Toast.LENGTH_SHORT).show();
         }
-
 
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
