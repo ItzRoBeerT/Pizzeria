@@ -35,15 +35,13 @@ public class ConfirmacionActivity extends AppCompatActivity {
         TextView txt = findViewById(R.id.miTexto);
         txt.setText("Pizza "+miPizza.getNombre()+"\nIngredientes:\n"+miPizza.mostrarIngredientes());
 
-
-        //BOTON ACEPTAR PEDIDO
-
         //BOTON CANCELAR
         Button btnCancelar = findViewById(R.id.btnCancelarPed);
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                tools.cambiarActividad(LoggedActivity.class);
+                finish();
             }
         });
 
