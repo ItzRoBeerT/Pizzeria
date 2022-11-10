@@ -39,11 +39,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
         android:text="Ok"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/btnCancelarPed"
         app:layout_constraintTop_toBottomOf="@+id/miTexto" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnCancelarPed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"

@@ -3,6 +3,8 @@ package com.example.pizzeria;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.pizzeria.Clases.Herramientas;
@@ -29,5 +31,17 @@ public class ConfirmacionActivity extends AppCompatActivity {
 
         TextView txt = findViewById(R.id.miTexto);
         txt.setText("Pizza "+miPizza.getNombre()+"\nIngredientes:\n"+miPizza.mostrarIngredientes());
+
+        //BOTON ACEPTAR PEDIDO
+
+        //BOTON CANCELAR
+        Button btnCancelar = findViewById(R.id.btnCancelarPed);
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
     }
 }
