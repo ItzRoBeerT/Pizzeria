@@ -14,6 +14,8 @@ import com.example.pizzeria.Clases.Pizza;
 import com.example.pizzeria.Clases.Servicio;
 import com.example.pizzeria.Clases.Usuario;
 
+import java.nio.file.Files;
+
 public class ConfirmacionActivity extends AppCompatActivity {
 
     private static final String FILE_NAME = "myFile";
@@ -35,6 +37,9 @@ public class ConfirmacionActivity extends AppCompatActivity {
 
         TextView txt = findViewById(R.id.miTexto);
         txt.setText("Pizza "+miPizza.getNombre()+"\nIngredientes:\n"+miPizza.mostrarIngredientes());
+
+        TextView txtPrecio = findViewById(R.id.txtPrecio);
+        txtPrecio.setText("PRECIO: "+miPizza.getPrecio()+" $");
 
         //BOTON CANCELAR
         Button btnCancelar = findViewById(R.id.btnCancelarPed);

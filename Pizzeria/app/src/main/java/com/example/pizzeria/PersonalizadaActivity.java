@@ -24,6 +24,7 @@ public class PersonalizadaActivity extends AppCompatActivity {
     Servicio servicio = new Servicio();
     RadioGroup radioGroup;
     RadioButton radioButton;
+    double precio=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class PersonalizadaActivity extends AppCompatActivity {
                 TextView txt = findViewById(R.id.txtOpciones);
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
+                comprobarPrecioTamano(radioButton);
 
                 if(!validarcheck()){
                    Toast.makeText(PersonalizadaActivity.this,"Debe seleccionar al menos 3 ingredientes",Toast.LENGTH_SHORT).show();
@@ -53,6 +55,17 @@ public class PersonalizadaActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void comprobarPrecioTamano(RadioButton rb){
+        if (rb.getText().equals("Pequeña")){
+            precio = 5;
+
+        }else if(rb.getText().equals("Mediana")){
+            precio = 10;
+        }else{
+            precio = 15;
+        }
     }
 
     @SuppressLint("SuspiciousIndentation")
@@ -109,32 +122,41 @@ public class PersonalizadaActivity extends AppCompatActivity {
 
         if (chkQueso.isChecked()){
             ingredientes.add(chkQueso.getText().toString());
+            precio+=3;
         }
         if (chkJamon.isChecked()){
             ingredientes.add(chkJamon.getText().toString());
+            precio+=3;
         }
         if (chkParmesano.isChecked()){
             ingredientes.add(chkParmesano.getText().toString());
+            precio+=3;
         }
         if (chkSalchichas.isChecked()){
             ingredientes.add(chkSalchichas.getText().toString());
+            precio+=3;
         }
         if (chkGorgonzola.isChecked()){
             ingredientes.add(chkGorgonzola.getText().toString());
+            precio+=3;
         }
         if (chkAtun.isChecked()){
             ingredientes.add(chkAtun.getText().toString());
+            precio+=3;
         }
         if (chkBacon.isChecked()){
             ingredientes.add(chkBacon.getText().toString());
+            precio+=3;
         }
         if (chkPepperoni.isChecked()){
             ingredientes.add(chkPepperoni.getText().toString());
+            precio+=3;
         }
         if (chkPollo.isChecked()){
             ingredientes.add(chkPollo.getText().toString());
+            precio+=3;
         }
-        Pizza pizza =new Pizza("Personalizada",3.0,ingredientes);
+        Pizza pizza =new Pizza("Personalizada",precio,ingredientes);
         return   pizza;
     }
 }

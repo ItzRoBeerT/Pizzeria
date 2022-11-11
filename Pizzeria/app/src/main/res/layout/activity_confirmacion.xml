@@ -37,20 +37,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="31dp"
         android:text="Ok"
         app:layout_constraintStart_toEndOf="@+id/btnCancelarPed"
-        app:layout_constraintTop_toBottomOf="@+id/miTexto" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio" />
 
     <Button
         android:id="@+id/btnCancelarPed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="31dp"
         android:layout_marginEnd="24dp"
         android:text="Cancelar"
         app:layout_constraintEnd_toStartOf="@+id/btnConfirmarPedido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio" />
+
+    <TextView
+        android:id="@+id/txtPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="176dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/miTexto" />
 
