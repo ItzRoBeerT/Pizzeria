@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 public class Usuario {
     private String user,password;
-    private static ArrayList<Pizza> pizzasPedidas;
+    private static ArrayList<Pizza> pizzasPedidas= new ArrayList<>();
     public Usuario(String user, String password) {
         this.user = user;
         this.password = password;
-        this.pizzasPedidas=new ArrayList<>();
     }
 
     public String getUser() {
