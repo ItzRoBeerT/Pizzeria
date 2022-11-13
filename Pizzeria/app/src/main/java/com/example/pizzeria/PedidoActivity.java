@@ -2,6 +2,7 @@ package com.example.pizzeria;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,7 @@ public class PedidoActivity extends AppCompatActivity {
         //BOTON FAVORITA
         Button btnFav = findViewById(R.id.btnFav);
         btnFav.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onClick(View view) {
                 //Recoger nombre guardado
@@ -53,7 +55,7 @@ public class PedidoActivity extends AppCompatActivity {
 
                 Usuario usuarioActual = servicio.encontrarUsuarioNombre(username);
                 Pizza pizzaFav= usuarioActual.calcularPizzaFav();
-                if(pizzaFav==null){
+                if(pizzaFav ==null){
                     Toast.makeText(PedidoActivity.this, "Todavia no has hecho ningún pedido", Toast.LENGTH_SHORT).show();
                 }else
                 tools.pasarPizzaPredet(ConfirmacionActivity.class,pizzaFav);

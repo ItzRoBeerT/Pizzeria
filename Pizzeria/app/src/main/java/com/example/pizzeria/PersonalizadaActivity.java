@@ -39,7 +39,6 @@ public class PersonalizadaActivity extends AppCompatActivity {
         btnValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView txt = findViewById(R.id.txtOpciones);
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
                 comprobarPrecioTamano(radioButton);
@@ -48,7 +47,6 @@ public class PersonalizadaActivity extends AppCompatActivity {
                    Toast.makeText(PersonalizadaActivity.this,"Debe seleccionar al menos 3 ingredientes",Toast.LENGTH_SHORT).show();
                 }else{
                     Pizza p = generarPizza();
-                    txt.setText(radioButton.getText()+ "Pizza "+p.getNombre()+"\nIngredientes: \n"+ p.mostrarIngredientes());
                     servicio.addPizza(p);
                     tools.pasarPizza(ConfirmacionActivity.class,p);
                 }

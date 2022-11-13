@@ -23,13 +23,13 @@ public class Usuario {
         return pizzasPedidas;
     }
     public void addPizzaPedida(Pizza p){
-        pizzasPedidas.add(p);
+        Usuario.pizzasPedidas.add(p);
     }
 
     public Pizza calcularPizzaFav(){
-
         Pizza pizzaFavorita=null;
         int contador=0,maxApariciones=0;
+
         for(Pizza p: this.pizzasPedidas){
             for(Pizza p2: this.pizzasPedidas){
                 if (p.getNombre().equals(p2.getNombre())){
