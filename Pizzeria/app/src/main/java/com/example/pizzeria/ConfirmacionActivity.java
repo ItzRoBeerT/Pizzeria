@@ -67,7 +67,7 @@ public class ConfirmacionActivity extends AppCompatActivity {
                 usuarioActual.addPizzaPedida(finalMiPizza);
                 tools.cambiarActividad(LoggedActivity.class);
                 Toast.makeText(ConfirmacionActivity.this, "Preparando la pizza, prepara la cerveza", Toast.LENGTH_SHORT).show();
-                finish();
+
             }
         });
     }

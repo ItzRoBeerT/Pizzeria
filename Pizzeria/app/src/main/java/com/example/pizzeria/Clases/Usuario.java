@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 public class Usuario {
     private String user,password;
-    private static ArrayList<Pizza> pizzasPedidas;
+    private static ArrayList<Pizza> pizzasPedidas= new ArrayList<>();
     public Usuario(String user, String password) {
         this.user = user;
         this.password = password;
-        this.pizzasPedidas=new ArrayList<>();
     }
 
     public String getUser() {
@@ -23,13 +22,13 @@ public class Usuario {
         return pizzasPedidas;
     }
     public void addPizzaPedida(Pizza p){
-        pizzasPedidas.add(p);
+        Usuario.pizzasPedidas.add(p);
     }
 
     public Pizza calcularPizzaFav(){
-
         Pizza pizzaFavorita=null;
         int contador=0,maxApariciones=0;
+
         for(Pizza p: this.pizzasPedidas){
             for(Pizza p2: this.pizzasPedidas){
                 if (p.getNombre().equals(p2.getNombre())){
