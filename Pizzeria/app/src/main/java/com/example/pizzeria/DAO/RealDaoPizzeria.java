@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.pizzeria.Clases.Pizza;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RealDaoPizzeria extends SQLiteOpenHelper {
@@ -16,26 +19,24 @@ public class RealDaoPizzeria extends SQLiteOpenHelper {
 
     public RealDaoPizzeria(Context context) {
         super(context, NOMBREBBDD, null, VERSION);
+
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS \"pizza\" (\n" +
-                "\t\"id_pizza\"\tINTEGER UNIQUE,\n" +
-                "\t\"nombre\"\tTEXT,\n" +
-                "\t\"precio\"\tNUMERIC,\n" +
-                "\t\"tiempo_preparacion\"\tINTEGER,\n" +
-                "\t\"Ingredientes\"\tTEXT,\n" +
-                "\tPRIMARY KEY(\"id_pizza\" AUTOINCREMENT)\n" +
-                ")");
 
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS \"Usuario\" (\n" +
-                "\t\"id_usuario\"\tINTEGER UNIQUE,\n" +
-                "\t\"nick\"\tTEXT UNIQUE,\n" +
-                "\t\"password\"\tTEXT,\n" +
-                "\tPRIMARY KEY(\"id_usuario\"AUTOINCREMENT)\n" +
-                ")");
+        sqLiteDatabase.execSQL("Create Table pizza" + "(" +
+                "id_pizza INTEGER Primary Key AUTOINCREMENT," +
+                "nombre TEXT NOT NULL," +
+                "precio NUMERIC NOT NULL," +
+                "ingredientes TEXT NOT NULL," +
+                "tiempo_preparacion INTEGER NOT NULL" + ")");
 
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS \"pizza_usuario\" (\n" +
+        sqLiteDatabase.execSQL("Create Table Usuario" + "(" +
+                "id_usuario INTEGER Primary Key AUTOINCREMENT," +
+                "nick TEXT NOT NULL," +
+                "password TEXT NOT NULL" + ")");
+
+        sqLiteDatabase.execSQL("CREATE TABLE \"pizza_usuario\" (\n" +
                 "\t\"id_pizza_usuario\"\tINTEGER UNIQUE,\n" +
                 "\t\"id_pizza\"\tINTEGER,\n" +
                 "\t\"id_usuario\"\tINTEGER,\n" +
@@ -80,5 +81,21 @@ public class RealDaoPizzeria extends SQLiteOpenHelper {
 
         c.close();
         return mapaUsuario;
+    }
+    public ArrayList<Pizza> obtenerPizzas(){
+
+        SQLiteDatabase bbdd = this.getWritableDatabase();
+        ArrayList<Pizza> listaPizzas = new ArrayList<Pizza>();
+        Pizza pizza;
+        Cursor cursorPizza = bbdd.rawQuery("Select * from Pizza",null);
+
+        if(cursorPizza.moveToFirst()){
+            do{
+                pizza = new Pizza(cursorPizza.getString(2), cursorPizza.getDouble(3), cursorPizza.getString(3));
+                listaPizzas.add(pizza);
+            }while(cursorPizza.moveToNext());
+        }
+        cursorPizza.close();
+        return listaPizzas;
     }
 }
