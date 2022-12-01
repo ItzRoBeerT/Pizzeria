@@ -10,11 +10,13 @@ import android.widget.TextView;
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Servicio;
 import com.example.pizzeria.Clases.Usuario;
+import com.example.pizzeria.DAO.RealDaoPizzeria;
 
 public class RegistroActivity extends AppCompatActivity {
 
     Herramientas tools = new Herramientas(this);
-    Servicio servicio = new Servicio();
+   // Servicio servicio = new Servicio();
+    RealDaoPizzeria dao = new RealDaoPizzeria(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,8 @@ public class RegistroActivity extends AppCompatActivity {
                 TextView contra  = findViewById(R.id.txtRegistrarContra);
 
                 Usuario nuevoUsu = new Usuario(usuario.getText().toString(),contra.getText().toString());
-                servicio.addUsuario(nuevoUsu);
+               // servicio.addUsuario(nuevoUsu);
+                dao.insertarUsuario(nuevoUsu);
                 finish();
             }
         });

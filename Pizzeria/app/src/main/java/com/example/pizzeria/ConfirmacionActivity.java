@@ -13,6 +13,7 @@ import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Pizza;
 import com.example.pizzeria.Clases.Servicio;
 import com.example.pizzeria.Clases.Usuario;
+import com.example.pizzeria.DAO.RealDaoPizzeria;
 
 import java.nio.file.Files;
 
@@ -21,6 +22,7 @@ public class ConfirmacionActivity extends AppCompatActivity {
     private static final String FILE_NAME = "myFile";
     Herramientas tools = new Herramientas(this);
     Servicio servicio = new Servicio();
+    RealDaoPizzeria dao = new RealDaoPizzeria(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +30,13 @@ public class ConfirmacionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirmacion);
 
         Integer idPizza = tools.recogerIdPizza();
-        Pizza miPizza= servicio.getPizzaID(idPizza);
+        //servicio.getPizzaID(idPizza)
+        Pizza miPizza= dao.encontrarPizzaID(idPizza);
 
         if(miPizza==null) {
             String nombrePizza = tools.recogerNombrePizzaPredet();
-            miPizza= servicio.getPizzaPredet(nombrePizza);
+           // servicio.getPizzaPredet(nombrePizza)
+            miPizza= dao.encontrarPizzaPred(nombrePizza);
         }
 
         TextView txt = findViewById(R.id.miTexto);
@@ -62,7 +66,8 @@ public class ConfirmacionActivity extends AppCompatActivity {
                 SharedPreferences preferences = getSharedPreferences(FILE_NAME,MODE_PRIVATE);
                 String username = preferences.getString("usuario","No encontrado");
 
-                Usuario usuarioActual = servicio.encontrarUsuarioNombre(username);
+                //servicio.encontrarUsuarioNombre(username)
+                Usuario usuarioActual = dao.encontrarUsuarioNombre(username) ;
 
                 usuarioActual.addPizzaPedida(finalMiPizza);
                 tools.cambiarActividad(LoggedActivity.class);

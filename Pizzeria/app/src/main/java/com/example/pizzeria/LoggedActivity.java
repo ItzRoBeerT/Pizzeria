@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Servicio;
 import com.example.pizzeria.Clases.Usuario;
+import com.example.pizzeria.DAO.RealDaoPizzeria;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class LoggedActivity extends AppCompatActivity {
     private static final String FILE_NAME = "myFile";
     Herramientas tools = new Herramientas(this);
     Servicio servicio = new Servicio();
+    RealDaoPizzeria dao = new RealDaoPizzeria(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +89,8 @@ public class LoggedActivity extends AppCompatActivity {
 
     public Usuario encontrarUsuario(String nombre){
         Usuario usu = null;
-        for(Usuario u: servicio.getUsuarios()){
+       // servicio.getUsuarios()
+        for(Usuario u: dao.obtenerUsuarios() ){
             if(u.getUser().equals(nombre)){
                 usu= u;
             }

@@ -8,14 +8,11 @@ public class Pizza {
     private Integer tiempoPrep;
     private ArrayList<String> ingredientes;
     private  Integer  idPizza;
-    private static  Integer idP=1;
 
     public Pizza(String nombre, Double precio, ArrayList<String> ingredientes) {
         this.nombre = nombre;
         this.precio = precio;
         this.ingredientes = ingredientes;
-        idPizza=idP;
-        idP++;
     }
 
     public String getNombre() {
@@ -48,6 +45,9 @@ public class Pizza {
 
     public Integer getIdPizza() {
         return idPizza;
+    }
+    public void setIdPizza(Integer id){
+        this.idPizza=id;
     }
 
     public void setIngredientes(ArrayList<String> ingredientes) {

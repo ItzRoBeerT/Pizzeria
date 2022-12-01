@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Pizza;
 import com.example.pizzeria.Clases.Servicio;
+import com.example.pizzeria.DAO.RealDaoPizzeria;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class PredeterminadasActivity extends AppCompatActivity {
 
     Herramientas tools = new Herramientas(this);
     Servicio servicio = new Servicio();
+    RealDaoPizzeria dao = new RealDaoPizzeria(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,8 @@ public class PredeterminadasActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String pizzaPredet = menuPredet.getSelectedItem().toString();
-                Pizza p = servicio.getPizzaPredet(pizzaPredet);
+                //servicio.getPizzaPredet(pizzaPredet)
+                Pizza p = dao.encontrarPizzaPred(pizzaPredet);
                 tools.pasarPizzaPredet(ConfirmacionActivity.class,p);
             }
         });
@@ -43,8 +46,9 @@ public class PredeterminadasActivity extends AppCompatActivity {
     public ArrayList<String> obtenerPizzasPredet(){
 
         ArrayList<String> pizzas = new ArrayList<>();
-        for(Pizza p: servicio.getPizzasPredet()){
-            pizzas.add(p.getNombre());
+        //servicio.getPizzasPredet()
+        for(Pizza p: dao.obtenerPizzas()){
+            if (!p.getNombre().equalsIgnoreCase("Personalizada")) pizzas.add(p.getNombre());
         }
         return pizzas;
     }

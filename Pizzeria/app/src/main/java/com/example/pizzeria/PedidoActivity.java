@@ -13,12 +13,14 @@ import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Pizza;
 import com.example.pizzeria.Clases.Servicio;
 import com.example.pizzeria.Clases.Usuario;
+import com.example.pizzeria.DAO.RealDaoPizzeria;
 
 public class PedidoActivity extends AppCompatActivity {
 
     private static final String FILE_NAME = "myFile";
     Herramientas tools = new Herramientas(this);
     Servicio servicio = new Servicio();
+    RealDaoPizzeria dao = new RealDaoPizzeria(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,8 @@ public class PedidoActivity extends AppCompatActivity {
                 SharedPreferences preferences = getSharedPreferences(FILE_NAME,MODE_PRIVATE);
                 String username = preferences.getString("usuario","No encontrado");
 
-                Usuario usuarioActual = servicio.encontrarUsuarioNombre(username);
+                //servicio.encontrarUsuarioNombre(username)
+                Usuario usuarioActual = dao.encontrarUsuarioNombre(username);
                 Pizza pizzaFav= usuarioActual.calcularPizzaFav();
                 if(pizzaFav ==null){
                     Toast.makeText(PedidoActivity.this, "Todavia no has hecho ningún pedido", Toast.LENGTH_SHORT).show();

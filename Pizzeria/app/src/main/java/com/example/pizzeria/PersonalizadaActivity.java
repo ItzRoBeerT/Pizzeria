@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Pizza;
 import com.example.pizzeria.Clases.Servicio;
+import com.example.pizzeria.DAO.RealDaoPizzeria;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class PersonalizadaActivity extends AppCompatActivity {
     Servicio servicio = new Servicio();
     RadioGroup radioGroup;
     RadioButton radioButton;
+    RealDaoPizzeria dao = new RealDaoPizzeria(this);
     double precio=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,10 @@ public class PersonalizadaActivity extends AppCompatActivity {
                    Toast.makeText(PersonalizadaActivity.this,"Debe seleccionar al menos 3 ingredientes",Toast.LENGTH_SHORT).show();
                 }else{
                     Pizza p = generarPizza();
-                    servicio.addPizza(p);
+                    p.setTiempoPrep(5);
+                    //servicio.addPizza(p);
+                    dao.insertarPizzas(p);
+                    p.setIdPizza(dao.devolverIdPizza(p.getNombre()));
                     tools.pasarPizza(ConfirmacionActivity.class,p);
                 }
 

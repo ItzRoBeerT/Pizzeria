@@ -2,6 +2,7 @@ package com.example.pizzeria.DAO;
 
 import com.example.pizzeria.Clases.Pizza;
 import com.example.pizzeria.Clases.Usuario;
+import com.example.pizzeria.MainActivity;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ public class DaoPizzeria {
     private static DaoPizzeria dao = null;
     private ArrayList<Pizza> pizzas;
     private ArrayList<Usuario> usuarios;
+    private  RealDaoPizzeria daoReal;
     private DaoPizzeria(){
         pizzas = new ArrayList<>();
         usuarios= new ArrayList<>();

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.pizzeria.Clases.Herramientas;
 import com.example.pizzeria.Clases.Servicio;
 import com.example.pizzeria.Clases.Usuario;
+import com.example.pizzeria.DAO.RealDaoPizzeria;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Herramientas tools = new Herramientas(this);
     Servicio servicio = new Servicio();
     Usuario user= null;
+    RealDaoPizzeria dao = new RealDaoPizzeria(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
                TextView txtContra= findViewById(R.id.txtContraseña);
                String contra= txtContra.getText().toString();
 
-               for(Usuario usu: servicio.getUsuarios()){
+               // servicio.getUsuarios()
+               for(Usuario usu: dao.obtenerUsuarios()){
                     if(usu.getUser().equals(usuario) && usu.getPassword().equals(contra)){
                         encontrado= true;
                         user= usu;
