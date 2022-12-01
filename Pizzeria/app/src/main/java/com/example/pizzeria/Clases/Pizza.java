@@ -56,6 +56,9 @@ public class Pizza {
     public String mostrarIngredientes(){
         String txt="";
         for(String ingrediente: ingredientes){
+            if (ingrediente==null){
+                ingrediente="";
+            }
             txt+=ingrediente+"\n";
         }
         return  txt;

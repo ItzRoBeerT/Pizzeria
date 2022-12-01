@@ -46,7 +46,7 @@ public class PersonalizadaActivity extends AppCompatActivity {
                 comprobarPrecioTamano(radioButton);
 
                 if(!validarcheck()){
-                   Toast.makeText(PersonalizadaActivity.this,"Debe seleccionar al menos 3 ingredientes",Toast.LENGTH_SHORT).show();
+                   Toast.makeText(PersonalizadaActivity.this,"Debe seleccionar al menos 3 ingredientes y maximo 5",Toast.LENGTH_SHORT).show();
                 }else{
                     Pizza p = generarPizza();
                     p.setTiempoPrep(5);
@@ -104,7 +104,7 @@ public class PersonalizadaActivity extends AppCompatActivity {
         if (chkPollo.isChecked()){
             contador++;        }
 
-        if(contador>=3){
+        if(contador>=3 && contador<6) {
             return true;
         }else
         return false;

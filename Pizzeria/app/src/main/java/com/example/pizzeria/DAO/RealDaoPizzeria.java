@@ -106,12 +106,15 @@ public class RealDaoPizzeria extends SQLiteOpenHelper {
                 values.put("ingrediente4",pizza.getIngredientes().get(3));
                 values.put("ingrediente5",pizza.getIngredientes().get(4));
             }else if (pizza.getIngredientes().size()==4){
-
-            }
                 values.put("ingrediente1",pizza.getIngredientes().get(0));
                 values.put("ingrediente2",pizza.getIngredientes().get(1));
                 values.put("ingrediente3",pizza.getIngredientes().get(2));
-
+                values.put("ingrediente4",pizza.getIngredientes().get(3));
+            }else{
+                values.put("ingrediente1",pizza.getIngredientes().get(0));
+                values.put("ingrediente2",pizza.getIngredientes().get(1));
+                values.put("ingrediente3",pizza.getIngredientes().get(2));
+            }
             values.put("tiempo_preparacion",pizza.getTiempoPrep());
 
             id=bbdd.insert("pizza",null,values);
