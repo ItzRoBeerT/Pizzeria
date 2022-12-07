@@ -51,7 +51,6 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
     }
     @Override
     public void onBindViewHolder(@NonNull AdapterDatos.ViewHolder holder, int position) {
-
         String name = listaPizzas.get(position).getNombre();
         holder.nametxt.setText(name);
     }

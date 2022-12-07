@@ -52,6 +52,8 @@ public class RealDaoPizzeria extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("INSERT INTO usuario(nick, password) VALUES('admin','1234')");
         sqLiteDatabase.execSQL("INSERT INTO pizza(nombre, precio,ingrediente1,ingrediente2,ingrediente3,ingrediente4,ingrediente5,tiempo_preparacion) VALUES('margarita',12.50,'jamon','queso','tomate','aceituna','mozzarela',5)");
+        sqLiteDatabase.execSQL("INSERT INTO pizza(nombre, precio,ingrediente1,ingrediente2,ingrediente3,ingrediente4,ingrediente5,tiempo_preparacion) VALUES('barbacoa',12.50,'bacon','queso','tomate','salsa','pollo',5)");
+
         System.out.println("Se creó la BBDD");
     }
 
