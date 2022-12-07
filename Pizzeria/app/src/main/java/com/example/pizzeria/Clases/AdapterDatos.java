@@ -12,13 +12,26 @@ import com.example.pizzeria.R;
 
 import java.util.ArrayList;
 
-public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> {
+public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder>  implements  View.OnClickListener{
 
     private ArrayList<Pizza> listaPizzas;
+    private View.OnClickListener listener;
 
     public AdapterDatos(ArrayList<Pizza> listaPizzas){
         this.listaPizzas=listaPizzas;
     }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener= listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(listener!= null){
+            listener.onClick(view);
+        }
+    }
+
     public class  ViewHolder extends  RecyclerView.ViewHolder{
         private TextView nametxt;
 
@@ -32,6 +45,8 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
     @Override
     public AdapterDatos.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items, parent, false);
+        //escuchando evento de seleccion
+        itemView.setOnClickListener(this);
         return new ViewHolder(itemView);
     }
     @Override
@@ -45,5 +60,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
     public int getItemCount() {
         return listaPizzas.size();
     }
+
+
 }
 

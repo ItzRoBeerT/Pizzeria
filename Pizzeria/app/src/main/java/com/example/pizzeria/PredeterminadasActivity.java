@@ -1,15 +1,19 @@
 package com.example.pizzeria;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pizzeria.Clases.AdapterDatos;
 import com.example.pizzeria.Clases.Herramientas;
@@ -37,24 +41,25 @@ public class PredeterminadasActivity extends AppCompatActivity {
         listaPizzas= new ArrayList<>();
         recyclerView = findViewById(R.id.miRecycler);
 
-        Spinner menuPredet= findViewById(R.id.spìnnerPredet);
-        ArrayList<String> pizzas = obtenerPizzasPredet();
-        ArrayAdapter<String> adaptador = tools.generarAdaptador(pizzas,0);
-        menuPredet.setAdapter(adaptador);
+        obtenerPizzasPredet();
+
 
         //BOTON SELECION PREDETERMINADA
+
+        /*
         Button btn = findViewById(R.id.btnSelecionPredet);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String pizzaPredet = menuPredet.getSelectedItem().toString();
-                //servicio.getPizzaPredet(pizzaPredet)
+                  String pizzaPredet = menuPredet.getSelectedItem().toString();
+                servicio.getPizzaPredet(pizzaPredet)
                 Pizza p = dao.encontrarPizzaPred(pizzaPredet);
                 tools.pasarPizzaPredet(ConfirmacionActivity.class,p);
             }
-        });
+        });*/
+
     }
-    public ArrayList<String> obtenerPizzasPredet(){
+    public void obtenerPizzasPredet(){
         ArrayList<String> pizzas = new ArrayList<>();
         //servicio.getPizzasPredet()
         ArrayList<Pizza> pizzasSelect= new ArrayList<>();
@@ -66,7 +71,7 @@ public class PredeterminadasActivity extends AppCompatActivity {
 
         }
         setAdapter(pizzasSelect);
-        return pizzas;
+        //return pizzas;
     }
 
 
@@ -76,5 +81,29 @@ public class PredeterminadasActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+        //evento
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                for(int i=0;i<adapter.getItemCount();i++)
+                {
+                    View nview=recyclerView.getChildAt(i); // This will give you entire row(child) from RecyclerView
+                    if(view!=null)
+                    {
+                        TextView textView= (TextView) nview.findViewById(R.id.txtTitulo);
+                        String text=textView.getText().toString();
+                        if (text.equals(listaPizzas.get(i).getNombre())){
+                            System.out.println("Entro");
+                            String pizzaPredet = text;
+                            Pizza p = dao.encontrarPizzaPred(pizzaPredet);
+                            tools.pasarPizzaPredet(ConfirmacionActivity.class,p);
+                        }
+                    }
+                }
+            }
+        });
     }
+
+
 }
